@@ -13,6 +13,7 @@
 		F9BF49F127FCDF050094AF83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9BF49F027FCDF050094AF83 /* Preview Assets.xcassets */; };
 		F9BF49FA27FCDFDD0094AF83 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9BF49F827FCDFDD0094AF83 /* CoreDataModel.xcdatamodeld */; };
 		F9BF49FD27FCE0F30094AF83 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF49FC27FCE0F30094AF83 /* CoreDataManager.swift */; };
+		F9BF4A0027FCEF140094AF83 /* CarDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF49FF27FCEF140094AF83 /* CarDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F9BF49F227FCDF050094AF83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9BF49F927FCDFDD0094AF83 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		F9BF49FC27FCE0F30094AF83 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F9BF49FF27FCEF140094AF83 /* CarDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		F9BF49E827FCDF030094AF83 /* Car Rental */ = {
 			isa = PBXGroup;
 			children = (
+				F9BF49FE27FCEF060094AF83 /* Views */,
 				F9BF49FB27FCE0E00094AF83 /* Managers */,
 				F9BF49E927FCDF030094AF83 /* Car_RentalApp.swift */,
 				F9BF49EB27FCDF030094AF83 /* ContentView.swift */,
@@ -81,6 +84,14 @@
 				F9BF49FC27FCE0F30094AF83 /* CoreDataManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		F9BF49FE27FCEF060094AF83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F9BF49FF27FCEF140094AF83 /* CarDetail.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9BF4A0027FCEF140094AF83 /* CarDetail.swift in Sources */,
 				F9BF49EC27FCDF030094AF83 /* ContentView.swift in Sources */,
 				F9BF49EA27FCDF030094AF83 /* Car_RentalApp.swift in Sources */,
 				F9BF49FD27FCE0F30094AF83 /* CoreDataManager.swift in Sources */,

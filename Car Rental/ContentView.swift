@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var carPicName: String = ""
     
     @State private var cars: [Car] = [Car]()
+    @State private var needsRefresh: Bool = false
     
     private func populateCars() {
         cars = coreDM.getAllCars()
@@ -49,7 +50,11 @@ struct ContentView: View {
                 List {
                     
                     ForEach(cars, id: \.self) { car in
-                        Text(car.model ?? "")
+                        NavigationLink(
+                            destination: CarDetail(car: car, coreDM: coreDM, needsRefresh: $needsRefresh),
+                            label: {
+                                Text(car.model ?? "")
+                            })
                     }.onDelete(perform: { indexSet in
                         indexSet.forEach { index in
                             let car = cars[index]
@@ -58,7 +63,8 @@ struct ContentView: View {
                             populateCars()
                         }
                     })
-                }
+                }.listStyle(PlainListStyle())
+                .accentColor(needsRefresh ? .white: .black)
                 
                 Spacer()
             }.padding()

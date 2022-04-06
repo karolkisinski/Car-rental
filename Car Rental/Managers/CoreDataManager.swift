@@ -56,5 +56,15 @@ class CoreDataManager {
         }
     }
     
+    func updateCar() {
+        
+        do {
+            try persistenContainer.viewContext.save()
+            print("updated")
+        } catch {
+            persistenContainer.viewContext.rollback()
+        }
+    }
+    
     
 }
