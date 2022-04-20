@@ -2,10 +2,19 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Car" representedClassName="Car" syncable="YES" codeGenerationType="class">
         <attribute name="brand" attributeType="String"/>
+        <attribute name="brand_pic" optional="YES" attributeType="String"/>
         <attribute name="model" attributeType="String"/>
-        <attribute name="pic_name" optional="YES" attributeType="String"/>
+        <attribute name="model_pic" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Rent" representedClassName="Rent" syncable="YES" codeGenerationType="class">
+        <attribute name="car_brand" optional="YES" attributeType="String"/>
+        <attribute name="car_model" optional="YES" attributeType="String"/>
+        <attribute name="date_end" attributeType="Date" defaultDateTimeInterval="672178440" usesScalarValueType="NO"/>
+        <attribute name="date_start" attributeType="Date" defaultDateTimeInterval="672178440" usesScalarValueType="NO"/>
+        <attribute name="days" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Car" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Car" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Rent" positionX="-63" positionY="9" width="128" height="104"/>
     </elements>
 </model>

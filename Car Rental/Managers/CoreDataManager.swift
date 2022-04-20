@@ -31,12 +31,13 @@ class CoreDataManager {
         }
     }
     
-    func saveCar(brand: String, model: String, pic_name: String) {
+    func saveCar(brand: String, model: String, brand_pic: String, model_pic: String) {
         
         let car = Car(context: persistenContainer.viewContext)
         car.brand = brand
         car.model = model
-        car.pic_name = pic_name
+        car.brand_pic = brand_pic
+        car.model_pic = model_pic
         
         do {
             try persistenContainer.viewContext.save()
@@ -63,6 +64,43 @@ class CoreDataManager {
             print("updated")
         } catch {
             persistenContainer.viewContext.rollback()
+        }
+    }
+    
+    func getAllRents() -> [Rent] {
+        
+        let fetchRequest: NSFetchRequest<Rent> = Rent.fetchRequest()
+        do {
+            return try persistenContainer.viewContext.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
+    
+    func saveRent(car_brand: String, car_model: String, date_start: Date, date_end: Date, days: Int) {
+
+        let rent = Rent(context: persistenContainer.viewContext)
+        rent.car_brand = car_brand
+        rent.car_model = car_model
+        rent.date_start = date_start
+        rent.date_end = date_end
+        rent.days = Int16(days)
+
+        do {
+            try persistenContainer.viewContext.save()
+        } catch {
+            print("Failed to save rent \(error)")
+        }
+    }
+
+    func deleteRent(rent: Rent) {
+        persistenContainer.viewContext.delete(rent)
+
+        do {
+            try persistenContainer.viewContext.save()
+        } catch {
+            persistenContainer.viewContext.rollback()
+            print("Failed to save context \(error)")
         }
     }
     

@@ -10,45 +10,31 @@ import SwiftUI
 struct CarDetail: View {
     
     let car: Car
-    @State private var carBrand: String = ""
-    @State private var carModel: String = ""
-    @State private var carPicName: String = ""
     
     let coreDM: CoreDataManager
-    
-    @Binding var needsRefresh: Bool
-    
+    @State var scaleImg: CGFloat = 1.0
     var body: some View {
         VStack {
-            TextField(car.brand ?? "", text: $carBrand)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.horizontal)
-            TextField(car.model ?? "", text: $carModel)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.horizontal)
-            TextField(car.pic_name ?? "", text: $carPicName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.horizontal)
-            Button(action: {
-                if !carBrand.isEmpty && !carModel.isEmpty && !carPicName.isEmpty {
-                    car.brand = carBrand
-                    car.model = carModel
-                    car.pic_name = carPicName
-                    coreDM.updateCar()
-                    needsRefresh.toggle()
-                }
-            }, label: {
-                Text("Update".uppercased())
-                    .foregroundColor(.white)
-                    .frame(height: 45)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.accentColor)
-                    .cornerRadius(10)
-                    .font(.headline)
-                    .padding(.horizontal)
-            })
-            
+            Text(car.brand! + " " + car.model!).font(.largeTitle)
+            Image("\(car.model_pic!)")
+                .resizable()
+                .frame(width: 200, height: 200)
+                .scaleEffect(scaleImg)
+                .gesture(TapGesture()
+                            .onEnded(){_ in scaleImg += 1
+                                if (scaleImg>2.1) {scaleImg = 1}
+                            })
         }
+        NavigationView{
+            VStack{
+                NavigationLink(
+                    destination: RentCar(car: car, coreDM: coreDM),
+                    label: {
+                        Text("Rent car")
+                    }).font(.title2)
+                }
+        
+            }
     }
 }
 
@@ -56,6 +42,6 @@ struct CarDetail_Previews: PreviewProvider {
     static var previews: some View {
         let car = Car()
         let coreDM = CoreDataManager()
-        CarDetail(car: car, coreDM: CoreDataManager(), needsRefresh: .constant(false))
+        CarDetail(car: car, coreDM: CoreDataManager())
     }
 }

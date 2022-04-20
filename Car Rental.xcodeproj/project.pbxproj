@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9B93E6C2810718A00EC54D8 /* CarEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B93E6B2810718A00EC54D8 /* CarEdit.swift */; };
+		F9B93E6E28107A4600EC54D8 /* AddCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B93E6D28107A4600EC54D8 /* AddCar.swift */; };
+		F9B93E702810806D00EC54D8 /* ShowCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B93E6F2810806D00EC54D8 /* ShowCars.swift */; };
+		F9B93E722810812C00EC54D8 /* RentedCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B93E712810812C00EC54D8 /* RentedCars.swift */; };
+		F9B93E7628108F2200EC54D8 /* RentCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B93E7528108F2200EC54D8 /* RentCar.swift */; };
 		F9BF49EA27FCDF030094AF83 /* Car_RentalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF49E927FCDF030094AF83 /* Car_RentalApp.swift */; };
 		F9BF49EC27FCDF030094AF83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF49EB27FCDF030094AF83 /* ContentView.swift */; };
 		F9BF49EE27FCDF050094AF83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9BF49ED27FCDF050094AF83 /* Assets.xcassets */; };
@@ -17,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F9B93E6B2810718A00EC54D8 /* CarEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEdit.swift; sourceTree = "<group>"; };
+		F9B93E6D28107A4600EC54D8 /* AddCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCar.swift; sourceTree = "<group>"; };
+		F9B93E6F2810806D00EC54D8 /* ShowCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCars.swift; sourceTree = "<group>"; };
+		F9B93E712810812C00EC54D8 /* RentedCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentedCars.swift; sourceTree = "<group>"; };
+		F9B93E7528108F2200EC54D8 /* RentCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentCar.swift; sourceTree = "<group>"; };
 		F9BF49E627FCDF030094AF83 /* Car Rental.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Rental.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9BF49E927FCDF030094AF83 /* Car_RentalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_RentalApp.swift; sourceTree = "<group>"; };
 		F9BF49EB27FCDF030094AF83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,7 +71,6 @@
 				F9BF49FE27FCEF060094AF83 /* Views */,
 				F9BF49FB27FCE0E00094AF83 /* Managers */,
 				F9BF49E927FCDF030094AF83 /* Car_RentalApp.swift */,
-				F9BF49EB27FCDF030094AF83 /* ContentView.swift */,
 				F9BF49ED27FCDF050094AF83 /* Assets.xcassets */,
 				F9BF49F227FCDF050094AF83 /* Info.plist */,
 				F9BF49EF27FCDF050094AF83 /* Preview Content */,
@@ -89,7 +98,13 @@
 		F9BF49FE27FCEF060094AF83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F9BF49EB27FCDF030094AF83 /* ContentView.swift */,
 				F9BF49FF27FCEF140094AF83 /* CarDetail.swift */,
+				F9B93E6B2810718A00EC54D8 /* CarEdit.swift */,
+				F9B93E6D28107A4600EC54D8 /* AddCar.swift */,
+				F9B93E6F2810806D00EC54D8 /* ShowCars.swift */,
+				F9B93E712810812C00EC54D8 /* RentedCars.swift */,
+				F9B93E7528108F2200EC54D8 /* RentCar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,10 +178,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9B93E6E28107A4600EC54D8 /* AddCar.swift in Sources */,
+				F9B93E7628108F2200EC54D8 /* RentCar.swift in Sources */,
 				F9BF4A0027FCEF140094AF83 /* CarDetail.swift in Sources */,
 				F9BF49EC27FCDF030094AF83 /* ContentView.swift in Sources */,
+				F9B93E722810812C00EC54D8 /* RentedCars.swift in Sources */,
+				F9B93E702810806D00EC54D8 /* ShowCars.swift in Sources */,
 				F9BF49EA27FCDF030094AF83 /* Car_RentalApp.swift in Sources */,
 				F9BF49FD27FCE0F30094AF83 /* CoreDataManager.swift in Sources */,
+				F9B93E6C2810718A00EC54D8 /* CarEdit.swift in Sources */,
 				F9BF49FA27FCDFDD0094AF83 /* CoreDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
