@@ -1,30 +1,28 @@
 //
-//  RentCar.swift
+//  CarDetail.swift
 //  Car Rental
 //
-//  Created by karol on 20/04/2022.
+//  Created by karol on 05/04/2022.
 //
 
 import SwiftUI
 
-struct RentCar: View {
+struct CarEdit: View {
+    
     let car: Car
     @State private var carBrand: String = ""
     @State private var carModel: String = ""
-    @State private var start_date: Date = Date()
-    @State private var date_end: Date = Date()
-    @State private var days: Int = 0
+    @State private var carBrandPic: String = ""
+    @State private var carModelPic: String = ""
     @State private var showingAlert = false
+    @State var brandSelect = "Toyota"
+    @State var modelSelect = "Supra"
+    var brands = ["Toyota", "Ford", "Nissan"]
+    var models = ["Silvia", "Bronco", "Ranger", "Skyline", "Carina", "Supra"]
     
-    let coreDM: CoreDataManager	
+    let coreDM: CoreDataManager
     
-    private func canSave() -> Bool {
-        if(carBrand.isEmpty || carModel.isEmpty){
-            return false
-        } else {
-            return true
-        }
-    }
+    @Binding var needsRefresh: Bool
     
     var body: some View {
         VStack {
@@ -35,26 +33,30 @@ struct RentCar: View {
                 TextField(car.model ?? "", text: $carModel)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
-                DatePicker("Start Date", selection: $start_date)
-                TextField("Rent days", value: $days, formatter: NumberFormatter())
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
+                Picker("Brand", selection: $brandSelect, content: {
+                    ForEach(brands, id: \.self, content: { brand in
+                        Text(brand)
+                    })
+                })
+                Picker("Model", selection: $modelSelect, content: {
+                    ForEach(models, id: \.self, content: { model in
+                        Text(model)
+                    })
+                })
             }.onAppear {
                 carBrand = car.brand ?? ""
                 carModel = car.model ?? ""
             }
             Button(action: {
-                if(!carBrand.isEmpty && !carModel.isEmpty){
                     car.brand = carBrand
                     car.model = carModel
-                    var end = start_date
-                    let seconds = days * 3600
-                    end = end.addingTimeInterval(TimeInterval(seconds))
-                    coreDM.saveRent(car_brand: carBrand, car_model: carModel, date_start: start_date, date_end: date_end, days: days)
+                    car.brand_pic = brandSelect
+                    car.model_pic = modelSelect
+                    coreDM.updateCar()
+                    needsRefresh.toggle()
                     showingAlert = true
-                }
             }, label: {
-                Text("Rent".uppercased())
+                Text("Update".uppercased())
                     .foregroundColor(.white)
                     .frame(height: 45)
                     .frame(maxWidth: .infinity)
@@ -62,22 +64,19 @@ struct RentCar: View {
                     .cornerRadius(10)
                     .font(.headline)
                     .padding(.horizontal)
-            }).disabled(!canSave())
-            .alert(isPresented: $showingAlert) {
+            }).alert(isPresented: $showingAlert) {
                 Alert(
-                    title: Text("Rent saved!"),
+                    title: Text("Car updated!"),
                     dismissButton: .default(Text("OK"))
                 )
             }
-            
         }
     }
 }
 
-struct RentCar_Previews: PreviewProvider {
+struct CarEdit_Previews: PreviewProvider {
     static var previews: some View {
         let car = Car()
-        let coreDM = CoreDataManager()
-        RentCar(car: car, coreDM: CoreDataManager())
+        CarEdit(car: car, coreDM: CoreDataManager(), needsRefresh: .constant(false))
     }
 }

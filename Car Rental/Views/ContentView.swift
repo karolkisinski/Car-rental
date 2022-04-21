@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct ContentView: View {
     
@@ -38,12 +37,8 @@ struct ContentView: View {
                 Spacer()
             }.navigationTitle("Car rental")
             .navigationBarTitleDisplayMode(.inline)
-            
-            
-            
         }
         .padding()
-
     }
 }
 

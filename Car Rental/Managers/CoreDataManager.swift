@@ -77,14 +77,11 @@ class CoreDataManager {
         }
     }
     
-    func saveRent(car_brand: String, car_model: String, date_start: Date, date_end: Date, days: Int) {
+    func saveRent(car_brand: String, car_model: String) {
 
         let rent = Rent(context: persistenContainer.viewContext)
         rent.car_brand = car_brand
         rent.car_model = car_model
-        rent.date_start = date_start
-        rent.date_end = date_end
-        rent.days = Int16(days)
 
         do {
             try persistenContainer.viewContext.save()

@@ -9,12 +9,9 @@
     <entity name="Rent" representedClassName="Rent" syncable="YES" codeGenerationType="class">
         <attribute name="car_brand" optional="YES" attributeType="String"/>
         <attribute name="car_model" optional="YES" attributeType="String"/>
-        <attribute name="date_end" attributeType="Date" defaultDateTimeInterval="672178440" usesScalarValueType="NO"/>
-        <attribute name="date_start" attributeType="Date" defaultDateTimeInterval="672178440" usesScalarValueType="NO"/>
-        <attribute name="days" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Car" positionX="-63" positionY="-18" width="128" height="89"/>
-        <element name="Rent" positionX="-63" positionY="9" width="128" height="104"/>
+        <element name="Rent" positionX="-63" positionY="9" width="128" height="59"/>
     </elements>
 </model>

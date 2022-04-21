@@ -13,19 +13,26 @@ struct RentedCars: View {
     let coreDM: CoreDataManager
     let dateFormatter = DateFormatter()
     
-    
+    private func populateRents() {
+        rents = coreDM.getAllRents()
+    }
     var body: some View {
         VStack {
            if(rents == []) { Text("No rents here!")} else {
             List {
                 ForEach(rents, id: \.self) { rent in
-                    Text(rent.car_brand!)
-                    Text(rent.car_model!)
-                    Text(dateFormatter.string(from: rent.date_end!))
-                }.padding()
+                    Text(rent.car_brand! + " " + rent.car_model!)
+                }.onDelete(perform: { indexSet in
+                    indexSet.forEach { index in
+                        let rent = rents[index]
+                        //delete using CDM
+                        coreDM.deleteRent(rent: rent)
+                        populateRents()
+                    }
+                })
+                .padding()
             }.listStyle(PlainListStyle())
-            //.background(Color.white)
-            //Spacer()
+
             }
         }.padding()
         .navigationTitle("Rents")

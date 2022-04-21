@@ -10,7 +10,6 @@ import Combine
 
 struct AddCar: View {
     
-    
     let coreDM: CoreDataManager
     
     @State private var carBrand: String = ""
@@ -93,7 +92,7 @@ struct AddCar: View {
                 }.listStyle(PlainListStyle())
                 .accentColor(needsRefresh ? .white: .black)
                 .background(Color.white)
-                Spacer()
+                //Spacer()
             }.padding()
             .navigationTitle("Cars")
             

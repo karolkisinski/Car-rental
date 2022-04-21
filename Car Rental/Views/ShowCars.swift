@@ -7,7 +7,6 @@
 
 
 import SwiftUI
-import Combine
 
 struct ShowCars: View {
     
@@ -40,7 +39,6 @@ struct ShowCars: View {
                 .onAppear(perform: {
                     cars = coreDM.getAllCars()
                 })}
-
         }
     }
 
